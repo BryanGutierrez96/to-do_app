@@ -1,17 +1,26 @@
 import React from "react";
 
 function CardTodo(props) {
-    const bg = {
-        "1":"card text-white bg-success",
-        "2":"card text-white bg-warning",
-        "3":"card text-white bg-danger"
-    }
+  const bg = {
+    "1": "card text-white bg-success my-3",
+    "2": "card text-white bg-warning my-3",
+    "3": "card text-white bg-danger my-3",
+  };
   return (
     <div className={bg[props.prioridad]}>
-      <di className="card-header"> Creado por:{props.nombre}</di>
+      <div className="card-header"> Creado por: { props.nombre}
+      <button onClick={() => props.delete()} className="close">
+        <span>&times;</span>
+      </button>
+      </div>
       <div className="card-body">
         <p className="card-text">{props.todo}</p>
       </div>
+      <di className="card-footer text center">
+        <button className="btn btn-card" type ="" onClick={() => props.edit()}>Editar</button>
+      </di>
     </div>
   );
 }
+
+export default CardTodo;
